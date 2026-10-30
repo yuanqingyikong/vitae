@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "此生",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#faf8f4",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {}
+}

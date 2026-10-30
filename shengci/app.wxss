@@ -1,0 +1,73 @@
+page {
+    min-height: 100%;
+    background: #faf8f4;
+    color: #2c2c2a;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 衬线字体是这个主题的"声音"。iOS 有宋体，Android 回退到系统衬线。 */
+.serif {
+    font-family: Georgia, "Songti SC", "STSong", "SimSun", serif;
+}
+
+button {
+    border-radius: 12rpx;
+}
+
+/* 去掉 button 默认的伪元素边框与背景 */
+button::after {
+    border: none;
+}
+
+/* 通用三态卡片 */
+.state-card {
+    margin: 40rpx 32rpx;
+    padding: 64rpx 40rpx;
+    background: #ffffff;
+    border-radius: 20rpx;
+    border: 1rpx solid #ece7dd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.state-title {
+    font-size: 30rpx;
+    color: #2c2c2a;
+    margin-top: 24rpx;
+}
+
+.state-description {
+    font-size: 24rpx;
+    color: #a8a29a;
+    margin-top: 12rpx;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.primary-button {
+    margin-top: 40rpx;
+    background: #2c2c2a;
+    color: #faf8f4;
+    font-size: 28rpx;
+    border-radius: 12rpx;
+    padding: 0 56rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.spinner {
+    width: 48rpx;
+    height: 48rpx;
+    border: 3rpx solid #ece7dd;
+    border-top-color: #a8a29a;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,113 @@
+<view class="page">
+
+    <!-- 视图切换：河流（微观） ↔ 人生格（宏观） -->
+    <view class="modebar">
+        <view class="nav-entry" bindtap="goAlbum">相册</view>
+        <view class="seg">
+            <view class="seg-item {{mode === 'river' ? 'seg-on' : ''}}" data-mode="river" bindtap="switchMode">河流</view>
+            <view class="seg-item {{mode === 'grid' ? 'seg-on' : ''}}" data-mode="grid" bindtap="switchMode">人生格</view>
+        </view>
+    </view>
+
+    <view class="state-card" wx:if="{{viewState === 'loading'}}">
+        <view class="spinner"></view>
+        <text class="state-title">正在翻你的这本</text>
+        <text class="state-description">稍等一下。</text>
+    </view>
+
+    <view class="state-card" wx:elif="{{viewState === 'error'}}">
+        <text class="state-title">没读出来</text>
+        <text class="state-description">数据仍在本地，请重试一次。</text>
+        <button class="primary-button" bindtap="handleRetry">重新读取</button>
+    </view>
+
+    <block wx:else>
+
+        <!-- 未完成的草稿不藏起来 -->
+        <view class="draft-bar" wx:if="{{draftHint}}" bindtap="resumeDraft">
+            <text class="draft-text">有一条没写完的记录</text>
+            <text class="draft-act">继续 →</text>
+        </view>
+
+        <!-- ============ 空状态：冷启动引导 ============ -->
+        <block wx:if="{{viewState === 'empty'}}">
+            <view class="empty">
+                <text class="empty-eyebrow">活过 {{stats.daysAlive}} 天</text>
+                <text class="empty-title serif">从哪一天开始？</text>
+                <text class="empty-sub">想不起从哪讲起，就先补这几件事。</text>
+            </view>
+            <view class="seeds">
+                <view class="seed" wx:for="{{seeds}}" wx:key="*this" data-title="{{item}}" bindtap="createFromSeed">
+                    <text class="seed-text serif">{{item}}</text>
+                    <text class="seed-plus">＋</text>
+                </view>
+            </view>
+        </block>
+
+        <!-- ============ 河流视图 ============ -->
+        <block wx:elif="{{mode === 'river'}}">
+            <view class="summary">
+                <text class="summary-main">{{stats.recordCount}} 条记录</text>
+                <text class="summary-sub">走了 {{stats.years}} 年</text>
+            </view>
+
+            <view class="group" wx:for="{{groups}}" wx:key="key" wx:for-item="group">
+                <view class="year-head" data-year="{{group.year}}" bindtap="openRecap">
+                    <text class="year serif">{{group.label}}</text>
+                    <text class="year-age" wx:if="{{group.ageLabel}}">{{group.ageLabel}}</text>
+                    <text class="year-more" wx:if="{{group.year}}">那一年 ›</text>
+                </view>
+
+                <view class="node" wx:for="{{group.events}}" wx:key="id" wx:for-item="ev" data-id="{{ev.id}}" bindtap="openDetail">
+                    <view class="rail">
+                        <view class="dot {{ev.cardType === 'milestone' ? 'dot-strong' : ''}}"></view>
+                    </view>
+
+                    <view class="card card-{{ev.cardType}}">
+                        <image wx:if="{{ev.cover}}" class="card-cover" src="{{ev.cover}}" mode="aspectFill" lazy-load></image>
+                        <view class="card-body">
+                            <text class="card-title serif">{{ev.title}}</text>
+                            <text wx:if="{{ev.excerpt}}" class="card-excerpt">{{ev.excerpt}}</text>
+                            <view class="card-meta">
+                                <text>{{ev.dateLabel}}</text>
+                                <text wx:if="{{ev.place}}"> · {{ev.place}}</text>
+                                <text wx:if="{{ev.photoCount > 1}}"> · {{ev.photoCount}} 张</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="tail">—— 以上是你走过的日子 ——</view>
+        </block>
+
+        <!-- ============ 人生格视图 ============ -->
+        <block wx:else>
+            <view class="grid-head">
+                <text class="grid-title serif">一格一月，一屏一生</text>
+                <text class="grid-sub">你已度过 {{grid.passed}} 个月，其中 {{grid.recordedCount}} 个月留下了记录。</text>
+            </view>
+
+            <view class="grid">
+                <view wx:for="{{grid.cells}}" wx:for-item="cell" class="cell cell-{{cell}}"></view>
+            </view>
+
+            <view class="legend">
+                <view class="legend-item"><view class="legend-dot cell-2"></view><text>有记录</text></view>
+                <view class="legend-item"><view class="legend-dot cell-1"></view><text>已度过</text></view>
+                <view class="legend-item"><view class="legend-dot cell-0"></view><text>未至</text></view>
+            </view>
+
+            <view class="grid-foot">按 75 年计，共 {{grid.total}} 格。</view>
+
+            <view class="origin" bindtap="editBirth">
+                <text class="origin-k">起点</text>
+                <text class="origin-v">{{birthLabel}}</text>
+                <text class="origin-edit">修改</text>
+            </view>
+        </block>
+
+    </block>
+
+    <view class="fab" bindtap="goCreate">＋</view>
+</view>

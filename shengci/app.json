@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/onboarding/onboarding",
+    "pages/event-edit/event-edit",
+    "pages/event-detail/event-detail",
+    "pages/album/album",
+    "pages/recap/recap"
+  ],
+  "window": {
+    "navigationBarTitleText": "此生",
+    "navigationBarBackgroundColor": "#faf8f4",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#faf8f4",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,8 @@
+# 换行符统一为 LF，避免跨机器 checkout 产生整文件差异
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary

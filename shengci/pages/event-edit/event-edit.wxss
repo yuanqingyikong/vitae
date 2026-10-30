@@ -1,0 +1,326 @@
+.page {
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: #faf8f4;
+    padding-bottom: 220rpx;
+}
+
+/* ============ 步骤条 ============ */
+.steps {
+    display: flex;
+    align-items: center;
+    padding: 36rpx 44rpx 8rpx;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 10rpx;
+}
+
+.step-num {
+    width: 36rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 20rpx;
+    color: #b8b2a8;
+    border: 1rpx solid #ddd6c8;
+}
+
+.step-name {
+    font-size: 22rpx;
+    color: #b8b2a8;
+}
+
+.step.cur .step-num {
+    background: #2c2c2a;
+    color: #faf8f4;
+    border-color: #2c2c2a;
+}
+
+.step.cur .step-name {
+    color: #2c2c2a;
+}
+
+.step.done .step-num {
+    background: #993c1d;
+    color: #faf8f4;
+    border-color: #993c1d;
+}
+
+.step.done .step-name {
+    color: #8d8880;
+}
+
+.step-line {
+    flex: 1;
+    height: 1rpx;
+    background: #e6e0d4;
+    margin: 0 18rpx;
+}
+
+.line-done {
+    background: #d8c3b4;
+}
+
+/* ============ 主体 ============ */
+.body {
+    padding: 56rpx 44rpx 0;
+}
+
+.q {
+    display: block;
+    font-size: 46rpx;
+    line-height: 1.5;
+    color: #2c2c2a;
+}
+
+.hint {
+    display: block;
+    margin-top: 18rpx;
+    font-size: 24rpx;
+    line-height: 1.75;
+    color: #a8a29a;
+}
+
+/* ============ 照片 ============ */
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16rpx;
+    margin-top: 44rpx;
+}
+
+.photo-item {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 12rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #ece7dd;
+}
+
+.photo-del {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40rpx;
+    height: 40rpx;
+    line-height: 36rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #ffffff;
+    background: rgba(44, 44, 42, 0.55);
+    border-bottom-left-radius: 12rpx;
+}
+
+.photo-add {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 12rpx;
+    border: 1rpx dashed #d8d0c2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f1e9;
+}
+
+.photo-add-icon {
+    font-size: 44rpx;
+    color: #c3bdb2;
+}
+
+/* ============ 时间精度 ============ */
+.precision-list {
+    margin-top: 40rpx;
+    background: #ffffff;
+    border: 1rpx solid #ece7dd;
+    border-radius: 16rpx;
+    overflow: hidden;
+}
+
+.precision-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28rpx 28rpx;
+    border-bottom: 1rpx solid #f2eee6;
+}
+
+.precision-item:last-child {
+    border-bottom: none;
+}
+
+.precision-label {
+    font-size: 28rpx;
+    color: #5f5e5a;
+}
+
+.precision-item.on .precision-label {
+    color: #2c2c2a;
+}
+
+.check {
+    width: 14rpx;
+    height: 26rpx;
+    border-right: 3rpx solid #993c1d;
+    border-bottom: 3rpx solid #993c1d;
+    transform: rotate(45deg);
+    margin-right: 8rpx;
+}
+
+.time-panel {
+    margin-top: 32rpx;
+    padding: 36rpx 28rpx;
+    background: #f3ece2;
+    border-radius: 16rpx;
+}
+
+.time-value {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-size: 40rpx;
+    color: #2c2c2a;
+}
+
+.time-edit {
+    font-size: 22rpx;
+    color: #a8a29a;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.time-note {
+    font-size: 24rpx;
+    line-height: 1.75;
+    color: #7a5a3a;
+}
+
+/* ============ 标题输入 ============ */
+.title-input {
+    margin-top: 48rpx;
+    padding: 24rpx 0;
+    font-size: 44rpx;
+    color: #2c2c2a;
+    border-bottom: 1rpx solid #e6e0d4;
+}
+
+.ph {
+    color: #d2ccc1;
+}
+
+/* ============ 补充更多 ============ */
+.more-toggle {
+    margin-top: 40rpx;
+    display: flex;
+    align-items: center;
+    gap: 10rpx;
+    font-size: 24rpx;
+    color: #993c1d;
+}
+
+.more-arrow {
+    font-size: 20rpx;
+}
+
+.more {
+    margin-top: 20rpx;
+    background: #ffffff;
+    border: 1rpx solid #ece7dd;
+    border-radius: 16rpx;
+    padding: 0 28rpx;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100rpx;
+    border-bottom: 1rpx solid #f2eee6;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.row-label {
+    font-size: 26rpx;
+    color: #8d8880;
+    flex: none;
+}
+
+.row-value {
+    font-size: 27rpx;
+    color: #2c2c2a;
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+}
+
+.chev {
+    color: #c3bdb2;
+    font-size: 26rpx;
+}
+
+.row-input {
+    flex: 1;
+    text-align: right;
+    font-size: 27rpx;
+    color: #2c2c2a;
+}
+
+.block {
+    padding: 26rpx 0 30rpx;
+}
+
+.content-input {
+    width: 100%;
+    margin-top: 16rpx;
+    min-height: 140rpx;
+    font-size: 27rpx;
+    line-height: 1.7;
+    color: #2c2c2a;
+}
+
+/* ============ 底部 ============ */
+.footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    gap: 20rpx;
+    padding: 24rpx 44rpx calc(24rpx + env(safe-area-inset-bottom));
+    background: rgba(250, 248, 244, 0.96);
+    border-top: 1rpx solid #ece7dd;
+}
+
+.btn-ghost {
+    width: 200rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #8d8880;
+    border: 1rpx solid #ddd6c8;
+    border-radius: 14rpx;
+}
+
+.btn-primary {
+    flex: 1;
+    height: 96rpx;
+    line-height: 96rpx;
+    text-align: center;
+    font-size: 29rpx;
+    color: #faf8f4;
+    background: #2c2c2a;
+    border-radius: 14rpx;
+}

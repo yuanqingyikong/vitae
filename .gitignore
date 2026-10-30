@@ -1,0 +1,14 @@
+# 操作系统 / 编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# 微信开发者工具本地产物
+shengci/node_modules/
+shengci/miniprogram_npm/
+shengci/project.private.config.json
+
+# 应用卡标记：内含本机绝对路径，换机器后失效，不入库
+.wbapp_*.genie

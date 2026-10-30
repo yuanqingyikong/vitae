@@ -1,0 +1,49 @@
+<view class="page">
+
+    <view class="state-card" wx:if="{{viewState === 'loading'}}">
+        <view class="spinner"></view>
+        <text class="state-title">正在打开</text>
+    </view>
+
+    <view class="state-card" wx:elif="{{viewState === 'missing'}}">
+        <text class="state-title">这条记录不见了</text>
+        <text class="state-description">它可能已经被删掉了。</text>
+    </view>
+
+    <block wx:else>
+        <view class="head">
+            <text class="date serif">{{dateLabel}}</text>
+            <text class="age" wx:if="{{ageLabel}}">{{ageLabel}}</text>
+        </view>
+
+        <text class="title serif">{{title}}</text>
+
+        <view class="photos {{single ? 'photos-single' : ''}}" wx:if="{{photos.length > 0}}">
+            <image class="photo" wx:for="{{photos}}" wx:key="*this" src="{{item}}" mode="aspectFill" data-src="{{item}}" bindtap="preview"></image>
+        </view>
+
+        <view class="content" wx:if="{{content}}">
+            <text>{{content}}</text>
+        </view>
+
+        <view class="meta" wx:if="{{typeLabel || emotion || place}}">
+            <view class="meta-row" wx:if="{{typeLabel}}">
+                <text class="meta-k">类型</text>
+                <text class="meta-v">{{typeLabel}}</text>
+            </view>
+            <view class="meta-row" wx:if="{{emotion}}">
+                <text class="meta-k">心情</text>
+                <text class="meta-v">{{emotion}}</text>
+            </view>
+            <view class="meta-row" wx:if="{{place}}">
+                <text class="meta-k">地点</text>
+                <text class="meta-v">{{place}}</text>
+            </view>
+        </view>
+
+        <view class="actions">
+            <view class="act" bindtap="edit">修改</view>
+            <view class="act act-danger" bindtap="remove">删除</view>
+        </view>
+    </block>
+</view>

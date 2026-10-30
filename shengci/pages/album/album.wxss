@@ -1,0 +1,83 @@
+.page {
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: #faf8f4;
+    padding-bottom: 80rpx;
+}
+
+/* ============ 切面切换 ============ */
+.facetbar {
+    display: flex;
+    gap: 12rpx;
+    padding: 24rpx 32rpx 20rpx;
+    background: #faf8f4;
+}
+
+.facet {
+    padding: 0 26rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 24rpx;
+    color: #8d8880;
+    background: #f0ece3;
+    border-radius: 999rpx;
+}
+
+.facet.on {
+    background: #2c2c2a;
+    color: #faf8f4;
+}
+
+.count {
+    padding: 4rpx 34rpx 20rpx;
+    font-size: 22rpx;
+    color: #b8b2a8;
+    letter-spacing: 1rpx;
+}
+
+/* ============ 分组 ============ */
+.section {
+    margin-bottom: 48rpx;
+}
+
+.sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14rpx;
+    padding: 0 34rpx 18rpx;
+}
+
+.sec-title {
+    font-size: 32rpx;
+    color: #2c2c2a;
+}
+
+.sec-sub {
+    font-size: 21rpx;
+    color: #b8b2a8;
+}
+
+/* ============ 九宫格 ============ */
+.thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8rpx;
+    padding: 0 32rpx;
+}
+
+/* 3 列：(750 - 32*2 - 8*2) / 3 = 223rpx */
+.thumb {
+    width: 223rpx;
+    height: 223rpx;
+    border-radius: 6rpx;
+    background: #ece7dd;
+    display: block;
+}
+
+.tail {
+    padding: 24rpx 0 60rpx;
+    text-align: center;
+    font-size: 21rpx;
+    color: #c3bdb2;
+    letter-spacing: 2rpx;
+}

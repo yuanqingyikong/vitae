@@ -1,0 +1,20 @@
+<view class="page">
+    <view class="hero">
+        <text class="eyebrow">此 生</text>
+        <text class="title serif">先告诉我，{{editing ? '哪天出生' : '你哪年出生'}}。</text>
+        <text class="subtitle">这一天会成为整本时间轴的起点。它只留在你自己的手机里。</text>
+    </view>
+
+    <picker mode="date" value="{{birthDate}}" start="1900-01-01" end="{{maxDate}}" bindchange="onDateChange">
+        <view class="date-field">
+            <text class="date-value serif">{{birthLabel}}</text>
+            <text class="date-hint">点击修改</text>
+        </view>
+    </picker>
+
+    <view class="actions">
+        <button class="primary-button" bindtap="onStart">{{editing ? '保存' : '开始'}}</button>
+    </view>
+
+    <view class="foot">不需要注册，不需要手机号。你的记录不会离开这台手机。</view>
+</view>

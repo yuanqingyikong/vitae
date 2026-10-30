@@ -1,0 +1,22 @@
+<view class="page">
+
+    <view class="yearbar">
+        <picker mode="selector" range="{{years}}" value="{{yearIndex}}" bindchange="onYearChange">
+            <view class="year-pick">
+                <text class="year-num serif">{{year}}</text>
+                <text class="chev">▾</text>
+            </view>
+        </picker>
+        <text class="year-hint">那一年</text>
+    </view>
+
+    <view class="card-wrap">
+        <canvas type="2d" id="card" class="card" style="width: 690rpx; height: 1000rpx;"></canvas>
+    </view>
+
+    <view class="tips" wx:if="{{empty}}">这一年还没有记录，卡片会是空的。</view>
+
+    <view class="actions">
+        <view class="btn" bindtap="save">保存到相册</view>
+    </view>
+</view>
